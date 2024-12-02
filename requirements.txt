@@ -1,0 +1,5 @@
+together
+requests
+PyPDF2
+rich
+streamlit
