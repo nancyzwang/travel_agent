@@ -4,6 +4,9 @@ from task_management_system import plan_vacation
 from datetime import datetime, timedelta
 import json
 
+# Set API key from Streamlit secrets
+os.environ["TOGETHER_API_KEY"] = st.secrets["TOGETHER_API_KEY"]
+
 # Set page config
 st.set_page_config(
     page_title="AI Vacation Planner",
