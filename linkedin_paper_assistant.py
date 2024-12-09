@@ -95,20 +95,29 @@ class LinkedInPaperAssistant:
         return self._call_model(prompt, temperature=0.3)
 
     def create_linkedin_post(self, analysis: str) -> str:
-        """Create an engaging LinkedIn post about the research"""
-        prompt = f"""<s>[INST] Create an engaging LinkedIn post about this AI research paper. The post should:
-        1. Start with a compelling hook about the innovation or impact
-        2. Highlight ONE groundbreaking finding or contribution
-        3. Explain its practical implications for AI/tech industry
-        4. Use simple analogies to explain complex concepts
-        5. Include 3-4 relevant hashtags (e.g., #AI #MachineLearning)
+        """Create an engaging LinkedIn post about the research that appeals to both technical researchers and general tech audience"""
+        prompt = f"""<s>[INST] Create a LinkedIn post about this bio+AI research paper that will resonate with both ML researchers and the general tech community. The post should:
+
+        1. Open with a concise statement connecting the research to a broader scientific challenge
+        2. Present ONE key technical contribution, including:
+           - The specific ML/bio innovation
+           - Why existing approaches were insufficient
+           - How this advances the field
+        3. Include one concrete example or application that demonstrates real-world impact
+        4. Maintain scientific rigor while using clear, precise language
+        5. Include 2-3 specific technical hashtags (e.g., #MachineLearning #BioinformaticsAI #ComputationalBiology)
         6. Keep it under 1300 characters
-        7. Use 2-3 relevant emojis maximum
-        8. End with an engaging question or call-to-action
+        7. Optional: one relevant emoji at the start
+        8. End with an insight that bridges technical and practical implications
 
         Research Analysis: {analysis}
         
-        Make it accessible to a technical audience while maintaining scientific accuracy. Focus on what makes this research novel and exciting. [/INST]</s>"""
+        Guidelines:
+        - Be precise with technical terms - fellow researchers will notice inaccuracies
+        - Explain complex concepts by relating them to established ML/bio frameworks
+        - Include specific metrics or improvements where available
+        - Avoid oversimplification; instead, build bridges between technical and practical aspects
+        - Highlight interdisciplinary implications between bio and AI fields [/INST]</s>"""
         
         return self._call_model(prompt, temperature=0.7)
 
